@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 614119307}
   m_Layer: 0
   m_Name: HPlayPlane
-  m_TagString: Untagged
+  m_TagString: StartingPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 993700241}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -733,6 +733,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1446f55139a93844b8e85f30fc4a6d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  MovingCube: {fileID: 0}
 --- !u!65 &1712924640
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     float gravityModifer = 2.0f;
     float speed = 10.0f;
-    bool OnMovingCube;
+    bool InAir;
     Rigidbody playerRb;
 
     public GameObject MovingCube;
@@ -34,32 +34,33 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * verticalInput * speed);
         transform.Translate(Vector3.right * Time.deltaTime * horizontalInput * speed);
 
-        if (OnMovingCube == true)
+        /*if (OnMovingCube == true)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, MovingCube.transform.position.z);
         }
+        */
 
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Moving Cube"))
         {
-            OnMovingCube = true;
+            InAir = false;
         }
         if (collision.gameObject.CompareTag("StartingPoint"))
         {
-            OnMovingCube = false;
+            InAir = false;
         }
 
     }
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && InAir == false)
         {
             playerRb.AddForce(Vector3.up * 10, ForceMode.Impulse);
 
-            OnMovingCube = false;
+            InAir = true;
         }
     }
 }
